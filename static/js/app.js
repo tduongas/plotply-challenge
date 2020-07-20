@@ -32,6 +32,9 @@ d3.json("./../data/samples.json").then(function(data) {
     // direct the dropdown menu to the updatePlots function when clicked
     dropdownMenu.on("change", updatePlots);
 
+    // default the page to the first individual id
+    updatePlots();
+
     function updatePlots() {
         // get the selected individual id value from the drop down
         var selectedIndividualId = dropdownMenu.property("value");
@@ -102,13 +105,13 @@ d3.json("./../data/samples.json").then(function(data) {
         
         var layout = {
             title: `Bubble Chart - Top 10 OTUs found for Individual ${selectedIndividualId}`,
-            showlegend: false,
-            height: 600,
-            width: 600
+            showlegend: false
         };
         
+        var config = {responsive: true}
+
         // plot the bubble chart
-        Plotly.newPlot('bubble', data, layout);
+        Plotly.newPlot('bubble', data, layout, config);
 
         
         // get selected individual's meta data
