@@ -15,13 +15,13 @@ var dropdownMenu = d3.select("#selDataset");
 
 
 // Fetch the JSON data and console log it
-d3.json("./../data/samples.json").then(function(data) {
+d3.json("../static/data/samples.json").then(function(data) {
 
     metadata = data.metadata
     samples = data.samples
 
     //console.log(metadata)
-    console.log(samples)
+    //console.log(samples)
 
     // add the county names to the drop-down menu
     metadata.forEach(function(individual) {
